@@ -77,6 +77,9 @@ def generates_string(file_name, w):
     current_set = set()
     current_set.add("S")
 
+    if w in current_set:
+        return "yes" # This is to check if target string already in initial state 'S'
+        
     # Continuation from start symbol
     for step in range(max_steps):
         next_set = set()
@@ -104,6 +107,9 @@ def generates_string(file_name, w):
                             next_set.add(new_string)
         
         current_set = next_set
+
+        if w in current_set:
+            return "yes" # After generating new strings, this is to check if target string is achieved at this step
 
         if not current_set:
             break
@@ -144,11 +150,11 @@ def run_in_one_minute(file_name,n):
     return "yes"
     
 if __name__ == "__main__":
-    file_name = "grammarA.txt"
+    file_name = "grammarS.txt"
 
     print("CNF check:", is_cnf(file_name))
 
-    test_string = "10"
+    test_string = "a"
     print("Generate string:", generates_string(file_name, test_string))
 
     n = len(test_string)
