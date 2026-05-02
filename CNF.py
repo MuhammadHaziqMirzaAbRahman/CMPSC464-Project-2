@@ -68,6 +68,10 @@ def generates_string(file_name, w):
     if is_cnf(file_name) == "no":
         return "no"
     
+    # This is to check if S directly produces the target string
+    if "S" in grammar and w in grammar["S"]:
+        return "yes"
+    
     n = len(w)
 
     # Maximum number of steps is 2n - 1
@@ -102,7 +106,7 @@ def generates_string(file_name, w):
                         if new_string == w:
                             return "yes"
                         
-                        # This is for pruning
+                        # Only add if length is valid, pruning
                         if len(new_string) <= len(w):
                             next_set.add(new_string)
         
@@ -150,11 +154,11 @@ def run_in_one_minute(file_name,n):
     return "yes"
     
 if __name__ == "__main__":
-    file_name = "grammarS.txt"
+    file_name = "grammarR.txt"
 
     print("CNF check:", is_cnf(file_name))
 
-    test_string = "a"
+    test_string = "aaa"
     print("Generate string:", generates_string(file_name, test_string))
 
     n = len(test_string)
