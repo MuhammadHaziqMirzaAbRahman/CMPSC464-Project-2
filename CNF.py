@@ -152,4 +152,4 @@ if __name__ == "__main__":
     print("Generate string:", generates_string(file_name, test_string))
 
     n = len(test_string)
-    print("Run in 1 minute:", run_in_one_minute(file_name, n))S
+    print("Run in 1 minute:", run_in_one_minute(file_name, n))
