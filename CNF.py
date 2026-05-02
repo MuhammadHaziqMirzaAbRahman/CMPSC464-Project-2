@@ -10,6 +10,8 @@ def parser(file_name):
     # Traverse each rule in grammar
     for i in range(1, n + 1):
         line = lines[i].strip()
+        if line == "":
+            continue # This is for empty space lines in input text files
         parts = line.split("=")
         left = parts[0].strip() # This is for LHS non-terminals
         right = parts[1].strip() # This is for RHS terminals
@@ -142,7 +144,7 @@ def run_in_one_minute(file_name,n):
     return "yes"
     
 if __name__ == "__main__":
-    file_name = "grammar.txt"
+    file_name = "grammarA.txt"
 
     print("CNF check:", is_cnf(file_name))
 
@@ -150,4 +152,4 @@ if __name__ == "__main__":
     print("Generate string:", generates_string(file_name, test_string))
 
     n = len(test_string)
-    print("Run in 1 minute:", run_in_one_minute(file_name, n))
+    print("Run in 1 minute:", run_in_one_minute(file_name, n))S
