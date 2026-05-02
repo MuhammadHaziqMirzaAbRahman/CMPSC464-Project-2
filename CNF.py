@@ -1,3 +1,7 @@
+# Collaborators
+# Muhammad Haziq Mirza Ab Rahman
+# Filzah Amiynah Shamshudin
+
 def parser(file_name):
     grammar = {} # dictionary to store grammar rules
 
@@ -80,9 +84,6 @@ def generates_string(file_name, w):
     # Start from S symbol
     current_set = set()
     current_set.add("S")
-
-    if w in current_set:
-        return "yes" # This is to check if target string already in initial state 'S'
         
     # Continuation from start symbol
     for step in range(max_steps):
@@ -154,11 +155,11 @@ def run_in_one_minute(file_name,n):
     return "yes"
     
 if __name__ == "__main__":
-    file_name = "grammarR.txt"
+    file_name = "grammarG.txt"
 
     print("CNF check:", is_cnf(file_name))
 
-    test_string = "aaa"
+    test_string = "acbcc"
     print("Generate string:", generates_string(file_name, test_string))
 
     n = len(test_string)
